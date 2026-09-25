@@ -281,6 +281,41 @@
     });
   }
 
+  // Miembros sin medallas: aparecen igualmente, con un mensaje para ir a por la primera.
+  var ASPIRANT_MSGS = [
+    'Tu primera medalla te espera',
+    'El 1% empieza con un logro',
+    'Primer logro = Atleta 1%',
+    'Tu nombre, a un logro del ranking',
+    'Lo difícil es empezar. Ya estás dentro',
+    'La constancia también se premia',
+  ];
+  function renderAspirants(list) {
+    var section = document.getElementById('aspirants');
+    var ul = document.getElementById('aspirants-list');
+    ul.innerHTML = '';
+    if (!list.length) {
+      section.hidden = true;
+      return;
+    }
+    section.hidden = false;
+    document.getElementById('aspirants-count').textContent = list.length + ' ' + plural(list.length, 'ASPIRANTE', 'ASPIRANTES');
+    var goal = RANKS[0];
+    list.forEach(function (c, i) {
+      var target = medal('rank', goal.key, goal.name);
+      target.classList.add('medal--goal');
+      ul.appendChild(
+        h('li', { class: 'aspirant', 'data-rank': goal.key, style: '--i:' + Math.min(i, 16) }, [
+          target,
+          h('div', { class: 'aspirant__txt' }, [
+            h('p', { class: 'aspirant__name', text: c.name }),
+            h('p', { class: 'aspirant__msg', text: ASPIRANT_MSGS[i % ASPIRANT_MSGS.length] }),
+          ]),
+        ]),
+      );
+    });
+  }
+
   function renderRanking(data) {
     var ol = document.getElementById('ranking');
     ol.innerHTML = '';
@@ -296,11 +331,19 @@
       return;
     }
     status.textContent = 'SYNC ' + ago(data.updatedAt);
-    if (!data.clients.length) {
+    var ranked = data.clients.filter(function (c) {
+      return c.total > 0;
+    });
+    renderAspirants(
+      data.clients.filter(function (c) {
+        return c.total === 0;
+      }),
+    );
+    if (!ranked.length) {
       ol.appendChild(h('li', { class: 'empty' }, [h('span', { class: 'mono', text: 'SIN DATOS' }), 'Todavía no hay medallas en el Hall of Fame.']));
       return;
     }
-    data.clients.forEach(function (c, i) {
+    ranked.forEach(function (c, i) {
       ol.appendChild(card(c, i));
     });
 

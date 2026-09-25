@@ -1,8 +1,9 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-25T11:16:29.532Z",
+  "updatedAt": "2026-09-25T17:56:59.685Z",
   "stats": {
     "athletes": 8,
+    "aspirants": 5,
     "medals": 31,
     "topRank": {
       "key": "fundador",
@@ -331,6 +332,105 @@
       "achievements": [],
       "lastDate": null,
       "position": 8
+    },
+    {
+      "id": "00000009-0000-0000-0000-000000000000",
+      "name": "Clara Bosch",
+      "total": 0,
+      "rank": null,
+      "passed": [],
+      "next": {
+        "key": "atleta",
+        "name": "Atleta 1%",
+        "remaining": 1,
+        "progress": 0
+      },
+      "loyalty": 0,
+      "achievements": [],
+      "lastDate": null,
+      "position": null
+    },
+    {
+      "id": "000000012-0000-0000-0000-000000000000",
+      "name": "Hugo Castells",
+      "total": 0,
+      "rank": null,
+      "passed": [],
+      "next": {
+        "key": "atleta",
+        "name": "Atleta 1%",
+        "remaining": 1,
+        "progress": 0
+      },
+      "loyalty": 0,
+      "achievements": [],
+      "lastDate": null,
+      "position": null
+    },
+    {
+      "id": "00000008-0000-0000-0000-000000000000",
+      "name": "Iván Soler",
+      "total": 0,
+      "rank": null,
+      "passed": [],
+      "next": {
+        "key": "atleta",
+        "name": "Atleta 1%",
+        "remaining": 1,
+        "progress": 0
+      },
+      "loyalty": 0,
+      "achievements": [],
+      "lastDate": null,
+      "position": null
+    },
+    {
+      "id": "000000011-0000-0000-0000-000000000000",
+      "name": "Lucía Navarro",
+      "total": 0,
+      "rank": null,
+      "passed": [],
+      "next": {
+        "key": "atleta",
+        "name": "Atleta 1%",
+        "remaining": 1,
+        "progress": 0
+      },
+      "loyalty": 0,
+      "achievements": [],
+      "lastDate": null,
+      "position": null
+    },
+    {
+      "id": "000000010-0000-0000-0000-000000000000",
+      "name": "Óscar Ferrer",
+      "total": 0,
+      "rank": null,
+      "passed": [],
+      "next": {
+        "key": "atleta",
+        "name": "Atleta 1%",
+        "remaining": 1,
+        "progress": 0
+      },
+      "loyalty": 0,
+      "achievements": [],
+      "lastDate": null,
+      "position": null
     }
-  ]
+  ],
+  "diag": {
+    "clientPages": 13,
+    "hofRows": 20,
+    "hofRowsLinked": 20,
+    "formulaTotal": {
+      "formula:number:>0": 8,
+      "formula:number:0/vacío": 5
+    },
+    "formulaRank": {
+      "formula:string:con valor": 13
+    },
+    "totalRaisedToRows": 0,
+    "rankFromTotal": 0
+  }
 }

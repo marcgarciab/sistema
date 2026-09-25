@@ -473,6 +473,57 @@ body {
 .ach__date { color: var(--faint); }
 .detail__empty { margin: 0; padding: 0 14px 14px; color: var(--faint); font-size: 13px; }
 
+/* ------------------------- En camino al 1% ------------------------- */
+.aspirants { margin-top: 40px; }
+.aspirants__intro { margin: -4px 2px 14px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.aspirants__intro strong { color: var(--text); font-weight: 600; }
+.aspirants__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.aspirant {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 12px 10px 10px;
+  border-radius: 14px;
+  background: var(--glass);
+  border: 1px dashed rgba(186, 148, 71, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  animation: rise 0.6s var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 40ms);
+}
+.aspirant .medal { --size: 34px; }
+/* La medalla objetivo, «apagada»: aún por conquistar. */
+.medal--goal { filter: grayscale(1) brightness(0.55); opacity: 0.6; }
+.aspirant__txt { min-width: 0; }
+.aspirant__name {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.aspirant__msg {
+  margin: 2px 0 0;
+  font-family: var(--f-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: var(--gold);
+}
+@media (min-width: 640px) {
+  .aspirants__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 /* ------------------------------- Insignias -------------------------------
    Placeholder: disco con aro de acento y brillo. Si assets.json define una
    imagen para el rango/categoría, se pinta la imagen en su lugar. */

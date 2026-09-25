@@ -142,8 +142,10 @@ export function buildHallOfFame(clientPages, hofPages, opts = {}) {
   );
 
   // Ranking de competición: empates comparten posición (1, 2, 2, 4…).
+  // Quien aún no tiene medallas no ocupa posición: aparece en «En camino al 1%».
   clients.forEach((c, i) => {
-    c.position = i > 0 && clients[i - 1].total === c.total ? clients[i - 1].position : i + 1;
+    if (c.total === 0) c.position = null;
+    else c.position = i > 0 && clients[i - 1].total === c.total ? clients[i - 1].position : i + 1;
   });
 
   const totalMedals = clients.reduce((s, c) => s + c.total, 0);
@@ -152,7 +154,12 @@ export function buildHallOfFame(clientPages, hofPages, opts = {}) {
   return {
     version: 1,
     updatedAt: (opts.now || new Date()).toISOString(),
-    stats: { athletes: clients.length, medals: totalMedals, topRank: top },
+    stats: {
+      athletes: clients.filter((c) => c.total > 0).length,
+      aspirants: clients.filter((c) => c.total === 0).length,
+      medals: totalMedals,
+      topRank: top,
+    },
     clients,
     diag,
   };

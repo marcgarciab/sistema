@@ -60,6 +60,9 @@ test('MIN_MEDALS=0 muestra todos; formato nombre + inicial', () => {
   const none = d.clients.find((c) => c.name === 'Sin M.');
   assert.equal(none.rank, null);
   assert.deepEqual([none.next.name, none.next.remaining], ['Atleta 1%', 1]);
+  assert.equal(none.position, null); // sin medallas no ocupa puesto en el ranking
+  assert.equal(d.stats.athletes, 3);
+  assert.equal(d.stats.aspirants, 1);
 });
 
 test('resolveRank tolera emojis/acentos y "—"', () => {

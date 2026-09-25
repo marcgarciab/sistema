@@ -26,8 +26,8 @@
     // IDs de BASE DE DATOS (API 2022-06-28), no de data source.
     "NOTION_CLIENTES_DB": "3bc5c30f46f480cf83afe40e2df24e1b",
     "NOTION_HOF_DB": "9c767adba2194c48b8a95644a25e338e",
-    // Mínimo de medallas para aparecer en el ranking (0 = todos los clientes).
-    "MIN_MEDALS": "1",
+    // Mínimo de medallas para aparecer (0 = todos; los que tienen 0 salen en «En camino al 1%»).
+    "MIN_MEDALS": "0",
     // "full" = nombre tal cual en Notion · "first_initial" = "Laura G."
     "NAME_FORMAT": "full"
   },
