@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildHallOfFame } from '../src/transform.js';
+import { buildHallOfFame, formatName } from '../src/transform.js';
 import { resolveRank } from '../src/ranks.js';
 import { client, hof } from './fixtures.js';
 
@@ -80,4 +80,12 @@ test('si la fórmula viene vacía, el total nunca es menor que los logros y el r
   assert.equal(d.clients[0].rank.name, 'Atleta 1%');
   assert.equal(d.diag.totalRaisedToRows, 1);
   assert.equal(d.diag.rankFromTotal, 1);
+});
+
+test('nombre + inicial del primer apellido (sin apellidos completos)', () => {
+  const f = (n) => formatName(n, 'first_initial');
+  assert.equal(f('Laura Vergoños Pérez'), 'Laura V.');
+  assert.equal(f('María de la Fuente'), 'María F.');
+  assert.equal(f('Pau'), 'Pau');
+  assert.equal(f('  Álex   Ñúñez  '), 'Álex Ñ.');
 });

@@ -75,7 +75,7 @@ en `wrangler.jsonc` para desactivar la URL `workers.dev`.
 | `NOTION_CLIENTES_DB` | `3bc5c30f46f480cf83afe40e2df24e1b` | ID de **base de datos** de Clientes (la API 2022-06-28 usa IDs de base, no el `collection://` del data source) |
 | `NOTION_HOF_DB` | `9c767adba2194c48b8a95644a25e338e` | ID de base de datos de Hall of Fame |
 | `MIN_MEDALS` | `0` | Mínimo de medallas para aparecer. Con `0` salen todos: quien aún no tiene medallas aparece en «En camino al 1%» |
-| `NAME_FORMAT` | `full` | `first_initial` muestra «Laura G.» en lugar del nombre completo |
+| `NAME_FORMAT` | `first_initial` | Muestra «Laura G.» (nombre + inicial del primer apellido, por protección de datos). `full` = nombre completo |
 
 ## Datos
 

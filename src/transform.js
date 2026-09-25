@@ -31,11 +31,17 @@ export function stringValue(prop) {
   return plainText(prop);
 }
 
+const PARTICLES = new Set(['de', 'del', 'la', 'las', 'los', 'y', 'i', 'da', 'do', 'dos', 'van', 'von', 'di']);
+
+// "first_initial": nombre + inicial del primer apellido ("Laura Vergoños Pérez" → "Laura V.").
+// Protección de datos: nunca se publican los apellidos completos.
 export function formatName(name, format) {
   if (format !== 'first_initial') return name;
   const parts = name.split(/\s+/).filter(Boolean);
   if (parts.length < 2) return name;
-  return `${parts[0]} ${parts[1][0].toUpperCase()}.`;
+  const surname = parts.slice(1).find((w) => !PARTICLES.has(w.toLowerCase()));
+  if (!surname) return parts[0];
+  return `${parts[0]} ${surname[0].toLocaleUpperCase('es')}.`;
 }
 
 // ---- Construcción del JSON que se guarda en KV ----
