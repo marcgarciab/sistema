@@ -15,7 +15,22 @@ Visitante ──▶ Worker.fetch "/" ──▶ index.html + datos de KV inyectad
 - Al JSON público solo llegan nombre, total, rango y logros. Email, teléfono y Estado
   **no salen** de Notion. Los clientes de baja siguen apareciendo (no se filtra por Estado).
 
-## Despliegue (una vez)
+## Despliegue automático (recomendado, sin terminal)
+
+El workflow `.github/workflows/deploy.yml` hace todo solo en GitHub: crea el KV, despliega,
+guarda el token de Notion en Cloudflare y lanza la primera sincronización. Solo necesita
+estos secrets en GitHub (*Settings → Secrets and variables → Actions → New repository secret*):
+
+| Secret | De dónde sale |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare → *My Profile → API Tokens → Create Token* → plantilla **Edit Cloudflare Workers** |
+| `NOTION_TOKEN` | notion.so/profile/integrations → tu integración → *Internal Integration Secret* |
+| `CLOUDFLARE_ACCOUNT_ID` | Opcional; solo si tu token tiene acceso a varias cuentas |
+
+Cada cambio subido vuelve a desplegar. También se puede lanzar a mano en *Actions →
+Desplegar Hall of Fame → Run workflow*. El resumen de la ejecución muestra la URL.
+
+## Despliegue manual (alternativa con terminal)
 
 Requisitos: Node 20+ y una cuenta de Cloudflare.
 
