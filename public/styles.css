@@ -476,7 +476,24 @@ body {
 .medal > span { position: relative; z-index: 1; text-shadow: 0 0 6px var(--glow); }
 .medal.has-img { background: none; border: 0; box-shadow: none; }
 .medal.has-img::after { display: none; }
-.medal.has-img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 calc(var(--size) * 0.18) var(--glow)); }
+/* La imagen se ajusta dentro del hueco cuadrado (las medallas pueden ser verticales). */
+.medal.has-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 calc(var(--size) * 0.12) var(--glow));
+  transition: filter 0.35s var(--ease);
+}
+.ring .medal.has-img { --size: 56px; }
+.ladder__item .medal.has-img { --size: 48px; }
+.passed .medal.has-img { --size: 24px; }
+.hero__medal .medal.has-img { --size: 150px; }
+.card.is-open .ring .medal.has-img,
+.card:has(.card__btn:active) .ring .medal.has-img { box-shadow: none; }
+.card.is-open .ring .medal.has-img img,
+.card:has(.card__btn:active) .ring .medal.has-img img { filter: drop-shadow(0 0 calc(var(--size) * 0.28) var(--glow)); }
 .card.is-open .ring .medal,
 .card:has(.card__btn:active) .ring .medal { transform: scale(1.08); box-shadow: 0 0 calc(var(--size) * 0.6) 0 var(--glow), inset 0 0 calc(var(--size) * 0.25) rgba(0, 0, 0, 0.6); }
 
@@ -521,6 +538,9 @@ body {
   .card__btn { gap: 18px; padding: 18px 20px 18px 18px; }
   .ring { width: 76px; height: 76px; }
   .ring .medal { --size: 56px; }
+  .ring .medal.has-img { --size: 66px; }
+  .ladder__item .medal.has-img { --size: 60px; }
+  .hero__medal .medal.has-img { --size: 172px; }
   .who__name { font-size: 16px; }
   .score__n { font-size: 42px; }
   .next { margin: 0 20px; }

@@ -4,10 +4,10 @@
     "image": null
   },
   "ranks": {
-    "Atleta 1%": null,
-    "Atleta de Élite": null,
-    "Leyenda 1%": null,
-    "Fundador 1%": null
+    "Atleta 1%": "/medals/atleta.webp",
+    "Atleta de Élite": "/medals/elite.webp",
+    "Leyenda 1%": "/medals/leyenda.webp",
+    "Fundador 1%": "/medals/fundador.webp"
   },
   "categories": {
     "Resistencia": null,
