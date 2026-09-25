@@ -21,3 +21,10 @@
   para las medallas de fidelidad (que no son filas en Notion).
 - `hero.image` → imagen de fondo opcional del hero (p. ej. `/hero/hero.jpg`, en
   `public/hero/`). Se funde con el degradado; el diseño funciona sin ella.
+
+## Vídeo del hero
+
+`hero.video` (MP4) + `hero.videoWebm` (WebM, opcional) + `hero.poster` (imagen fija) en
+`public/hero/`. Sustituye a la medalla central del hero. El fondo negro del vídeo se funde
+con la página (`mix-blend-mode: lighten` + máscara en los bordes), así que el vídeo debe tener
+**fondo negro/muy oscuro**, sin sonido y en bucle. Con `"video": null` vuelve la medalla.

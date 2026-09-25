@@ -223,7 +223,35 @@
     hero.setAttribute('data-rank', key);
     var slot = document.getElementById('hero-medal');
     slot.innerHTML = '';
-    slot.appendChild(medal('rank', key, top ? top.name : 'Fundador 1%'));
+    if (assets.hero && assets.hero.video) {
+      // Vídeo del trofeo integrado: sin controles, en bucle y silenciado (obligatorio para
+      // que el móvil lo reproduzca solo). Si no puede reproducirse, queda el póster.
+      hero.classList.add('has-video');
+      var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var v = h('video', {
+        class: 'hero__video',
+        poster: assets.hero.poster || null,
+        playsinline: '',
+        'webkit-playsinline': '',
+        loop: '',
+        muted: '',
+        preload: still ? 'none' : 'auto',
+        'aria-hidden': 'true',
+        disablepictureinpicture: '',
+      });
+      v.muted = true;
+      v.defaultMuted = true;
+      if (assets.hero.videoWebm) v.appendChild(h('source', { src: assets.hero.videoWebm, type: 'video/webm' }));
+      v.appendChild(h('source', { src: assets.hero.video, type: 'video/mp4' }));
+      slot.appendChild(v);
+      if (!still) {
+        v.autoplay = true;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+    } else {
+      slot.appendChild(medal('rank', key, top ? top.name : 'Fundador 1%'));
+    }
     if (assets.hero && assets.hero.image) {
       hero.style.setProperty('--hero-image', 'url("' + String(assets.hero.image).replace(/"/g, '%22') + '")');
     }

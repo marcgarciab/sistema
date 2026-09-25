@@ -1,7 +1,10 @@
 {
   "_ayuda": "Pon aquí la ruta de tus imágenes (dentro de /public). null = insignia circular de placeholder. Ver public/medals/README.md",
   "hero": {
-    "image": null
+    "image": null,
+    "video": "/hero/trofeo.mp4",
+    "poster": "/hero/trofeo.jpg",
+    "videoWebm": "/hero/trofeo.webm"
   },
   "ranks": {
     "Atleta 1%": "/medals/atleta.webp",
