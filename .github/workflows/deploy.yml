@@ -54,6 +54,7 @@ jobs:
       - name: Crear (o reutilizar) el almacenamiento KV
         if: steps.check.outputs.ready == 'true'
         run: |
+          set -o pipefail
           find_id() {
             npx wrangler kv namespace list 2>/dev/null | node -e '
               let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{
@@ -75,6 +76,7 @@ jobs:
       - name: Desplegar el Worker
         if: steps.check.outputs.ready == 'true'
         run: |
+          set -o pipefail
           npx wrangler deploy 2>&1 | tee deploy.log
           url="$(grep -oE 'https://[a-zA-Z0-9.-]+\.workers\.dev' deploy.log | head -1)"
           echo "WORKER_URL=$url" >> "$GITHUB_ENV"
