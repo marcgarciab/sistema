@@ -26,12 +26,41 @@
     "name": "Marc García",
     "title": "Fundador · Sistema 1%",
     "photo": "/founder/marc.webp",
-    "photoAlt": "Marc García celebrando el premio de 600 € de la competición Strength War",
+    "photoAlt": "Marc García celebrando el premio de 600 € como ganador de la Strength War",
     "quote": "No os pido nada que yo no haga. Entreno, compito y sigo sumando, igual que vosotros. Aquí no hay un entrenador arriba y atletas abajo: estamos en el mismo camino.",
     "achievements": [
       {
-        "title": "Strength War · Premio de 600 €",
-        "category": "Retos"
+        "title": "Ganador Strength War · 600 €",
+        "category": "Retos",
+        "featured": true
+      },
+      {
+        "title": "Maratón de Mallorca",
+        "category": "Resistencia"
+      },
+      {
+        "title": "10 km en menos de 40'",
+        "category": "Resistencia"
+      },
+      {
+        "title": "5 km en menos de 20'",
+        "category": "Resistencia"
+      },
+      {
+        "title": "10 km nadando",
+        "category": "Resistencia"
+      },
+      {
+        "title": "Peso muerto 190 kg",
+        "category": "Fuerza"
+      },
+      {
+        "title": "Sentadilla 160 kg",
+        "category": "Fuerza"
+      },
+      {
+        "title": "Press banca 140 kg",
+        "category": "Fuerza"
       }
     ]
   }

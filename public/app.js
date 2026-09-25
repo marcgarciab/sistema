@@ -395,7 +395,7 @@
     (f.achievements || []).forEach(function (a) {
       var cat = a.category || 'Retos';
       ul.appendChild(
-        h('li', { class: 'founder__ach-item', 'data-cat': cat }, [
+        h('li', { class: 'founder__ach-item' + (a.featured ? ' is-featured' : ''), 'data-cat': cat }, [
           medal('cat', null, cat),
           h('span', null, [h('strong', { text: a.title }), a.date ? h('time', { class: 'mono', datetime: a.date, text: fmtDate(a.date) }) : null]),
         ]),
