@@ -18,20 +18,21 @@
     "Retos": null,
     "Composición física": null,
     "Hábitos": null,
-    "Fidelidad": null
+    "Fidelidad": null,
+    "Híbrido": null
   },
   "founder": {
     "_ayuda": "Tarjeta del fundador, al final de la página. Pon \"show\": false para ocultarla.",
     "show": true,
-    "name": "Marc García",
+    "name": "Marc Garcia",
     "title": "Fundador · Sistema 1%",
     "photo": "/founder/marc.webp",
-    "photoAlt": "Marc García celebrando el premio de 600 € como ganador de la Strength War",
+    "photoAlt": "Marc Garcia celebrando el premio de 600 € como ganador de la Strength War",
     "quote": "No os pido nada que yo no haga. Entreno, compito y sigo sumando, igual que vosotros. Aquí no hay un entrenador arriba y atletas abajo: estamos en el mismo camino.",
     "achievements": [
       {
         "title": "Ganador Strength War · 600 €",
-        "category": "Retos",
+        "category": "Híbrido",
         "featured": true
       },
       {

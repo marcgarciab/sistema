@@ -40,6 +40,7 @@
 [data-cat='Composición física'] { --accent: #7cc49a; --glow: rgba(124, 196, 154, 0.45); }
 [data-cat='Hábitos'] { --accent: #b39ad8; --glow: rgba(179, 154, 216, 0.45); }
 [data-cat='Fidelidad'] { --accent: var(--gold); --glow: rgba(186, 148, 71, 0.5); }
+[data-cat='Híbrido'] { --accent: var(--gold-hi); --glow: rgba(231, 200, 115, 0.6); }
 
 *,
 *::before,
@@ -621,6 +622,7 @@ body {
     column-gap: 24px;
     padding: 18px;
   }
+  .founder__photo { align-self: center; }
   .founder__head { align-self: start; padding-top: 8px; }
   .founder__ach { align-self: start; }
 }

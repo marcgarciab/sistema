@@ -15,6 +15,7 @@
     'Composición física': 'CF',
     Hábitos: 'HB',
     Fidelidad: 'FD',
+    Híbrido: 'HY',
   };
   var MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
 
