@@ -26,5 +26,5 @@
 
 `hero.video` (MP4) + `hero.videoWebm` (WebM, opcional) + `hero.poster` (imagen fija) en
 `public/hero/`. Sustituye a la medalla central del hero. El fondo negro del vídeo se funde
-con la página (`mix-blend-mode: lighten` + máscara en los bordes), así que el vídeo debe tener
+con la página (máscara en los bordes; el trofeo queda opaco), así que el vídeo debe tener
 **fondo negro/muy oscuro**, sin sonido y en bucle. Con `"video": null` vuelve la medalla.
