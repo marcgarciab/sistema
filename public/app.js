@@ -372,16 +372,48 @@
     }
   }
 
+  // Tarjeta del fundador (assets.json → founder): al final, sin posición ni rango.
+  function renderFounder() {
+    var f = assets.founder;
+    var section = document.getElementById('founder');
+    if (!f || f.show === false || !f.name) return;
+    section.hidden = false;
+    var img = document.getElementById('founder-photo');
+    if (f.photo) {
+      img.src = f.photo;
+      img.alt = f.photoAlt || f.name;
+    } else {
+      img.parentNode.hidden = true;
+    }
+    document.getElementById('founder-role').textContent = (f.title || '').toUpperCase();
+    document.getElementById('founder-name').textContent = f.name;
+    var q = document.getElementById('founder-quote');
+    if (f.quote) q.textContent = '«' + f.quote + '»';
+    else q.hidden = true;
+    var ul = document.getElementById('founder-ach');
+    ul.innerHTML = '';
+    (f.achievements || []).forEach(function (a) {
+      var cat = a.category || 'Retos';
+      ul.appendChild(
+        h('li', { class: 'founder__ach-item', 'data-cat': cat }, [
+          medal('cat', null, cat),
+          h('span', null, [h('strong', { text: a.title }), a.date ? h('time', { class: 'mono', datetime: a.date, text: fmtDate(a.date) }) : null]),
+        ]),
+      );
+    });
+  }
+
   function render(data) {
     renderHero(data);
     renderLadder(data);
     renderRanking(data);
+    renderFounder();
   }
 
   // ---------- arranque ----------
   function merge(cfg) {
     cfg = cfg || {};
-    assets = { hero: cfg.hero || {}, ranks: cfg.ranks || {}, categories: cfg.categories || {} };
+    assets = { hero: cfg.hero || {}, ranks: cfg.ranks || {}, categories: cfg.categories || {}, founder: cfg.founder || null };
   }
 
   var injected = window.__HOF__;

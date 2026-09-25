@@ -28,3 +28,9 @@
 `public/hero/`. Sustituye a la medalla central del hero. El fondo negro del vídeo se funde
 con la página (máscara en los bordes; el trofeo queda opaco), así que el vídeo debe tener
 **fondo negro/muy oscuro**, sin sonido y en bucle. Con `"video": null` vuelve la medalla.
+
+## Tarjeta del fundador
+
+`founder` en `config/assets.json`: nombre, título, frase, foto (`public/founder/`) y lista de
+logros (`title`, `category`, `date` opcional). Aparece al final de la página, sin posición
+ni rango. `"show": false` la oculta.
