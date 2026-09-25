@@ -1,0 +1,37 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sistema1-hall-of-fame",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "preview_urls": false,
+
+  // Estático nativo de Workers: /public se sirve directamente.
+  // "/" y "/api/*" pasan primero por el Worker (inyecta los datos de KV en el HTML).
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/", "/index.html", "/api/*"]
+  },
+
+  // Crear con: npx wrangler kv namespace create HOF_KV  → pegar el id aquí.
+  "kv_namespaces": [
+    { "binding": "HOF_KV", "id": "REPLACE_WITH_KV_NAMESPACE_ID" }
+  ],
+
+  // Sincronización con Notion cada 30 minutos.
+  "triggers": { "crons": ["*/30 * * * *"] },
+
+  "vars": {
+    // IDs de BASE DE DATOS (API 2022-06-28), no de data source.
+    "NOTION_CLIENTES_DB": "3bc5c30f46f480cf83afe40e2df24e1b",
+    "NOTION_HOF_DB": "9c767adba2194c48b8a95644a25e338e",
+    // Mínimo de medallas para aparecer en el ranking (0 = todos los clientes).
+    "MIN_MEDALS": "1",
+    // "full" = nombre tal cual en Notion · "first_initial" = "Laura G."
+    "NAME_FORMAT": "full"
+  },
+
+  "observability": { "enabled": true }
+  // Secrets (no van aquí): wrangler secret put NOTION_TOKEN  ·  (opcional) REFRESH_TOKEN
+}

@@ -1,0 +1,4 @@
+# Copia a .dev.vars para desarrollo local (nunca se sube a git).
+NOTION_TOKEN=ntn_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# Opcional: habilita POST /api/refresh
+REFRESH_TOKEN=pon-aqui-una-cadena-larga-aleatoria

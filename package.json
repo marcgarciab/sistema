@@ -1,0 +1,15 @@
+{
+  "name": "sistema1-hall-of-fame",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "seed:local": "wrangler kv key put --binding=HOF_KV --local hof:data --path=scripts/sample-data.json",
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "_ayuda": "Pon aquí la ruta de tus imágenes (dentro de /public). null = insignia circular de placeholder. Ver public/medals/README.md",
+  "hero": {
+    "image": null
+  },
+  "ranks": {
+    "Atleta 1%": null,
+    "Atleta de Élite": null,
+    "Leyenda 1%": null,
+    "Fundador 1%": null
+  },
+  "categories": {
+    "Resistencia": null,
+    "Fuerza": null,
+    "Retos": null,
+    "Composición física": null,
+    "Hábitos": null,
+    "Fidelidad": null
+  }
+}

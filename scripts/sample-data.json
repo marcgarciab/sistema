@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-25T11:16:29.532Z",
+  "stats": {
+    "athletes": 8,
+    "medals": 31,
+    "topRank": {
+      "key": "fundador",
+      "name": "Fundador 1%"
+    }
+  },
+  "clients": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "name": "Laura Gómez",
+      "total": 8,
+      "rank": {
+        "key": "fundador",
+        "name": "Fundador 1%"
+      },
+      "passed": [
+        {
+          "key": "leyenda",
+          "name": "Leyenda 1%"
+        },
+        {
+          "key": "elite",
+          "name": "Atleta de Élite"
+        },
+        {
+          "key": "atleta",
+          "name": "Atleta 1%"
+        }
+      ],
+      "next": null,
+      "loyalty": 2,
+      "achievements": [
+        {
+          "id": "r0-5",
+          "title": "Media maratón completada",
+          "category": "Resistencia",
+          "date": "2026-11-18"
+        },
+        {
+          "id": "r0-4",
+          "title": "90 días registrando sueño",
+          "category": "Hábitos",
+          "date": "2026-09-15"
+        },
+        {
+          "id": "r0-3",
+          "title": "-6 kg de grasa manteniendo fuerza",
+          "category": "Composición física",
+          "date": "2026-07-12"
+        },
+        {
+          "id": "r0-2",
+          "title": "Reto 30 días sin fallar",
+          "category": "Retos",
+          "date": "2026-05-09"
+        },
+        {
+          "id": "r0-1",
+          "title": "Peso muerto 2x peso corporal",
+          "category": "Fuerza",
+          "date": "2026-03-06"
+        },
+        {
+          "id": "r0-0",
+          "title": "Primer 10K por debajo de 50'",
+          "category": "Resistencia",
+          "date": "2026-01-03"
+        }
+      ],
+      "lastDate": "2026-11-18",
+      "position": 1
+    },
+    {
+      "id": "00000001-0000-0000-0000-000000000000",
+      "name": "Pau Serra",
+      "total": 6,
+      "rank": {
+        "key": "leyenda",
+        "name": "Leyenda 1%"
+      },
+      "passed": [
+        {
+          "key": "elite",
+          "name": "Atleta de Élite"
+        },
+        {
+          "key": "atleta",
+          "name": "Atleta 1%"
+        }
+      ],
+      "next": {
+        "key": "fundador",
+        "name": "Fundador 1%",
+        "remaining": 1,
+        "progress": 0.5
+      },
+      "loyalty": 1,
+      "achievements": [
+        {
+          "id": "r1-4",
+          "title": "Media maratón completada",
+          "category": "Resistencia",
+          "date": "2026-12-15"
+        },
+        {
+          "id": "r1-3",
+          "title": "90 días registrando sueño",
+          "category": "Hábitos",
+          "date": "2026-10-12"
+        },
+        {
+          "id": "r1-2",
+          "title": "-6 kg de grasa manteniendo fuerza",
+          "category": "Composición física",
+          "date": "2026-08-09"
+        },
+        {
+          "id": "r1-1",
+          "title": "Reto 30 días sin fallar",
+          "category": "Retos",
+          "date": "2026-06-06"
+        },
+        {
+          "id": "r1-0",
+          "title": "Peso muerto 2x peso corporal",
+          "category": "Fuerza",
+          "date": "2026-04-03"
+        }
+      ],
+      "lastDate": "2026-12-15",
+      "position": 2
+    },
+    {
+      "id": "00000002-0000-0000-0000-000000000000",
+      "name": "Marta Ruiz",
+      "total": 5,
+      "rank": {
+        "key": "leyenda",
+        "name": "Leyenda 1%"
+      },
+      "passed": [
+        {
+          "key": "elite",
+          "name": "Atleta de Élite"
+        },
+        {
+          "key": "atleta",
+          "name": "Atleta 1%"
+        }
+      ],
+      "next": {
+        "key": "fundador",
+        "name": "Fundador 1%",
+        "remaining": 2,
+        "progress": 0
+      },
+      "loyalty": 1,
+      "achievements": [
+        {
+          "id": "r2-2",
+          "title": "90 días registrando sueño",
+          "category": "Hábitos",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "r2-1",
+          "title": "-6 kg de grasa manteniendo fuerza",
+          "category": "Composición física",
+          "date": "2026-09-06"
+        },
+        {
+          "id": "r2-0",
+          "title": "Reto 30 días sin fallar",
+          "category": "Retos",
+          "date": "2026-07-03"
+        },
+        {
+          "id": "r2-3",
+          "title": "Media maratón completada",
+          "category": "Resistencia",
+          "date": "2026-01-12"
+        }
+      ],
+      "lastDate": "2026-11-09",
+      "position": 3
+    },
+    {
+      "id": "00000003-0000-0000-0000-000000000000",
+      "name": "Jordi Vidal",
+      "total": 4,
+      "rank": {
+        "key": "elite",
+        "name": "Atleta de Élite"
+      },
+      "passed": [
+        {
+          "key": "atleta",
+          "name": "Atleta 1%"
+        }
+      ],
+      "next": {
+        "key": "leyenda",
+        "name": "Leyenda 1%",
+        "remaining": 1,
+        "progress": 0.5
+      },
+      "loyalty": 2,
+      "achievements": [
+        {
+          "id": "r3-1",
+          "title": "90 días registrando sueño",
+          "category": "Hábitos",
+          "date": "2026-12-06"
+        },
+        {
+          "id": "r3-0",
+          "title": "-6 kg de grasa manteniendo fuerza",
+          "category": "Composición física",
+          "date": "2026-10-03"
+        }
+      ],
+      "lastDate": "2026-12-06",
+      "position": 4
+    },
+    {
+      "id": "00000004-0000-0000-0000-000000000000",
+      "name": "Carla Martín",
+      "total": 3,
+      "rank": {
+        "key": "elite",
+        "name": "Atleta de Élite"
+      },
+      "passed": [
+        {
+          "key": "atleta",
+          "name": "Atleta 1%"
+        }
+      ],
+      "next": {
+        "key": "leyenda",
+        "name": "Leyenda 1%",
+        "remaining": 2,
+        "progress": 0
+      },
+      "loyalty": 1,
+      "achievements": [
+        {
+          "id": "r4-1",
+          "title": "Media maratón completada",
+          "category": "Resistencia",
+          "date": "2026-03-06"
+        },
+        {
+          "id": "r4-0",
+          "title": "90 días registrando sueño",
+          "category": "Hábitos",
+          "date": "2026-01-03"
+        }
+      ],
+      "lastDate": "2026-03-06",
+      "position": 5
+    },
+    {
+      "id": "00000005-0000-0000-0000-000000000000",
+      "name": "Álex Romero",
+      "total": 2,
+      "rank": {
+        "key": "atleta",
+        "name": "Atleta 1%"
+      },
+      "passed": [],
+      "next": {
+        "key": "elite",
+        "name": "Atleta de Élite",
+        "remaining": 1,
+        "progress": 0.5
+      },
+      "loyalty": 1,
+      "achievements": [
+        {
+          "id": "r5-0",
+          "title": "Media maratón completada",
+          "category": "Resistencia",
+          "date": "2026-04-03"
+        }
+      ],
+      "lastDate": "2026-04-03",
+      "position": 6
+    },
+    {
+      "id": "00000006-0000-0000-0000-000000000000",
+      "name": "Nuria Pons",
+      "total": 2,
+      "rank": {
+        "key": "atleta",
+        "name": "Atleta 1%"
+      },
+      "passed": [],
+      "next": {
+        "key": "elite",
+        "name": "Atleta de Élite",
+        "remaining": 1,
+        "progress": 0.5
+      },
+      "loyalty": 2,
+      "achievements": [],
+      "lastDate": null,
+      "position": 6
+    },
+    {
+      "id": "00000007-0000-0000-0000-000000000000",
+      "name": "Sergio Ortega",
+      "total": 1,
+      "rank": {
+        "key": "atleta",
+        "name": "Atleta 1%"
+      },
+      "passed": [],
+      "next": {
+        "key": "elite",
+        "name": "Atleta de Élite",
+        "remaining": 2,
+        "progress": 0
+      },
+      "loyalty": 1,
+      "achievements": [],
+      "lastDate": null,
+      "position": 8
+    }
+  ]
+}
