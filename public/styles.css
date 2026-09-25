@@ -254,12 +254,12 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
 }
 .ladder__item {
   text-align: center;
-  padding: 12px 4px 10px;
+  padding: 12px 3px 10px;
   border-radius: 14px;
   background: var(--glass);
   border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
@@ -275,7 +275,10 @@ body {
   line-height: 1.15;
   color: var(--accent);
 }
-.ladder__req { display: block; margin-top: 4px; font-size: 9.5px; color: var(--faint); }
+.ladder__req { display: block; margin-top: 4px; font-size: 9px; letter-spacing: 0.02em; line-height: 1.45; color: var(--faint); }
+.ladder__req > span { display: block; }
+.ladder__item[data-rank='none'] { border-style: dashed; }
+.ladder__item[data-rank='none'] .ladder__name { color: var(--muted); }
 
 .section-head {
   display: flex;

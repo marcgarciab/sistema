@@ -257,7 +257,8 @@
       hero.style.setProperty('--hero-image', 'url("' + String(assets.hero.image).replace(/"/g, '%22') + '")');
     }
     if (data) {
-      document.getElementById('stat-athletes').textContent = String(data.stats.athletes);
+      // Atletas = todos los miembros (con medallas + aspirantes).
+      document.getElementById('stat-athletes').textContent = String(data.clients.length);
       document.getElementById('stat-medals').textContent = String(data.stats.medals);
       document.getElementById('stat-top').textContent = top ? top.name.toUpperCase() : '—';
     }
@@ -265,20 +266,31 @@
 
   function renderLadder(data) {
     var counts = {};
+    var aspirants = 0;
     ((data && data.clients) || []).forEach(function (c) {
       if (c.rank) counts[c.rank.key] = (counts[c.rank.key] || 0) + 1;
+      else if (c.total === 0) aspirants++;
     });
     var ol = document.getElementById('ladder');
     ol.innerHTML = '';
-    RANKS.forEach(function (r) {
-      var n = counts[r.key] || 0;
+    function item(key, name, req, n, medalEl) {
       ol.appendChild(
-        h('li', { class: 'ladder__item', 'data-rank': r.key }, [
-          medal('rank', r.key, r.name),
-          h('span', { class: 'ladder__name', text: r.name }),
-          h('span', { class: 'ladder__req mono', text: r.req + ' · ' + n + ' ' + plural(n, 'atleta', 'atletas') }),
+        h('li', { class: 'ladder__item', 'data-rank': key }, [
+          medalEl,
+          h('span', { class: 'ladder__name', text: name }),
+          h('span', { class: 'ladder__req mono' }, [
+            h('span', { text: req }),
+            h('span', { text: n + ' ' + plural(n, 'atleta', 'atletas') }),
+          ]),
         ]),
       );
+    }
+    // Primer peldaño: aspirantes (0 medallas), con la medalla de Atleta 1% apagada.
+    var goal = medal('rank', RANKS[0].key, RANKS[0].name);
+    goal.classList.add('medal--goal');
+    item('none', 'Aspirante', '0', aspirants, goal);
+    RANKS.forEach(function (r) {
+      item(r.key, r.name, r.req, counts[r.key] || 0, medal('rank', r.key, r.name));
     });
   }
 
