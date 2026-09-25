@@ -67,3 +67,14 @@ test('resolveRank tolera emojis/acentos y "—"', () => {
   assert.equal(resolveRank('Atleta de Elite', 3).key, 'elite');
   assert.equal(resolveRank('—', 0), null);
 });
+
+test('si la fórmula viene vacía, el total nunca es menor que los logros y el rango se deduce', () => {
+  const broken = client(A, 'Laura Gómez', 0, 'Activo', '');
+  broken.properties['Total Medallas Club'] = { type: 'formula', formula: { type: 'number', number: null } };
+  const d = buildHallOfFame([broken], rows);
+  assert.equal(d.clients.length, 1);
+  assert.equal(d.clients[0].total, 2);
+  assert.equal(d.clients[0].rank.name, 'Atleta 1%');
+  assert.equal(d.diag.totalRaisedToRows, 1);
+  assert.equal(d.diag.rankFromTotal, 1);
+});

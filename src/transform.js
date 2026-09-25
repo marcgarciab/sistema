@@ -1,4 +1,4 @@
-import { RANKS, resolveRank, nextRank } from './ranks.js';
+import { RANKS, resolveRank, rankForTotal, nextRank } from './ranks.js';
 
 // ---- Lectura de propiedades de Notion (API 2022-06-28) ----
 
@@ -67,19 +67,46 @@ export function buildHallOfFame(clientPages, hofPages, opts = {}) {
     }
   }
 
+  // Diagnóstico sin datos personales (lo devuelve /api/refresh).
+  const diag = {
+    clientPages: clientPages.length,
+    hofRows: hofPages.length,
+    hofRowsLinked: [...byClient.values()].reduce((s, a) => s + a.length, 0),
+    formulaTotal: {},
+    formulaRank: {},
+    totalRaisedToRows: 0,
+    rankFromTotal: 0,
+  };
+  const tally = (obj, k) => (obj[k] = (obj[k] || 0) + 1);
+
   const clients = [];
   for (const p of clientPages) {
     if (p.archived || p.in_trash) continue;
     const props = p.properties || {};
     const name = plainText(props['Nombre']);
     if (!name) continue;
-    const total = Math.max(0, Math.round(numberValue(props['Total Medallas Club'])));
-    if (total < minMedals) continue;
 
-    const rank = resolveRank(stringValue(props['Rango Hall of Fame']), total);
     const achievements = (byClient.get(p.id.replace(/-/g, '')) || [])
       .slice()
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    const tp = props['Total Medallas Club'];
+    tally(diag.formulaTotal, tp ? `${tp.type}:${tp.formula?.type ?? ''}:${numberValue(tp) > 0 ? '>0' : '0/vacío'}` : 'falta');
+    const rp = props['Rango Hall of Fame'];
+    tally(diag.formulaRank, rp ? `${rp.type}:${rp.formula?.type ?? ''}:${stringValue(rp) ? 'con valor' : 'vacío'}` : 'falta');
+
+    // El total viene de la fórmula de Notion; nunca puede ser menor que los logros visibles
+    // (p. ej. si la fórmula queda vacía porque la integración no ve alguna base relacionada).
+    const formulaTotal = Math.max(0, Math.round(numberValue(tp)));
+    const total = Math.max(formulaTotal, achievements.length);
+    if (total > formulaTotal) diag.totalRaisedToRows++;
+    if (total < minMedals) continue;
+
+    let rank = resolveRank(stringValue(rp), total);
+    if (!rank && total > 0) {
+      rank = rankForTotal(total);
+      diag.rankFromTotal++;
+    }
     const next = nextRank(total);
     const rankIdx = rank ? RANKS.findIndex((r) => r.key === rank.key) : -1;
     // Tramo de progreso: desde el umbral del rango actual hasta el siguiente.
@@ -127,5 +154,6 @@ export function buildHallOfFame(clientPages, hofPages, opts = {}) {
     updatedAt: (opts.now || new Date()).toISOString(),
     stats: { athletes: clients.length, medals: totalMedals, topRank: top },
     clients,
+    diag,
   };
 }

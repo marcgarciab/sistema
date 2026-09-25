@@ -23,7 +23,8 @@ export async function sync(env) {
     minMedals: Number(env.MIN_MEDALS ?? 1),
     nameFormat: env.NAME_FORMAT,
   });
-  await env.HOF_KV.put(DATA_KEY, JSON.stringify(data));
+  const { diag, ...publicData } = data;
+  await env.HOF_KV.put(DATA_KEY, JSON.stringify(publicData));
   return data;
 }
 
@@ -110,7 +111,7 @@ export default {
       }
       try {
         const data = await sync(env);
-        return json({ ok: true, updatedAt: data.updatedAt, athletes: data.stats.athletes }, { headers: { 'cache-control': 'no-store' } });
+        return json({ ok: true, updatedAt: data.updatedAt, athletes: data.stats.athletes, diag: data.diag }, { headers: { 'cache-control': 'no-store' } });
       } catch (err) {
         return json({ ok: false, error: String(err.message || err) }, { status: 502, headers: { 'cache-control': 'no-store' } });
       }
