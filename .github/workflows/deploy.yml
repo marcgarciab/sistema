@@ -91,6 +91,20 @@ jobs:
           echo "REFRESH_TOKEN=$REFRESH_TOKEN" >> "$GITHUB_ENV"
           printf '%s' "$REFRESH_TOKEN" | npx wrangler secret put REFRESH_TOKEN
 
+      - name: Publicar la puerta de entrada Pages (para el subdominio)
+        if: steps.check.outputs.ready == 'true'
+        working-directory: pages-proxy
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npx wrangler pages project create sistema1-hall-of-fame-web --production-branch main 2>&1 | tail -3 || true
+          npx wrangler pages deploy --branch main --commit-dirty=true 2>&1 | tee pages.log
+          sleep 15
+          code="$(curl -s -o /dev/null -w '%{http_code}' https://sistema1-hall-of-fame-web.pages.dev/ || true)"
+          body="$(curl -s https://sistema1-hall-of-fame-web.pages.dev/ | grep -o 'Hall of Fame' | head -1 || true)"
+          echo "Pages → HTTP $code · contenido: ${body:-NO ENCONTRADO}"
+          echo "Pages: https://sistema1-hall-of-fame-web.pages.dev (HTTP $code)" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Primera sincronización con Notion
         if: steps.check.outputs.ready == 'true'
         run: |

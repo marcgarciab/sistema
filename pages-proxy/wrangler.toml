@@ -1,0 +1,10 @@
+# Proyecto Pages «puerta de entrada»: permite conectar un subdominio con DNS externo
+# (Squarespace) mediante CNAME, igual que los demás proyectos Pages. Todo el contenido
+# lo sirve el Worker sistema1-hall-of-fame a través de un service binding.
+name = "sistema1-hall-of-fame-web"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-09-01"
+
+[[services]]
+binding = "HOF"
+service = "sistema1-hall-of-fame"
